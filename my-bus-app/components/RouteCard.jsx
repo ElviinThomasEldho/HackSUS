@@ -9,12 +9,12 @@ const RouteCard = ({ route }) => {
   return (
     <View>
       <Text>{route.name}</Text>
-      <Text>{route.distance}</Text>
-      <Text>{route.time}</Text>
+      <Text>Distance : {route.distance} km</Text>
+      <Text>Time Taken : {route.time}</Text>
       {expanded && (
         <View>
-          <Text>{route.distance}</Text>
-          <Text>{route.time}</Text>
+          {route.occupancy < 50 ? <Text>Not Crowded</Text> : route.occupancy > 50 && route.occupancy < 8 ?  <Text>Less Crowded</Text> : <Text>Very Crowded</Text>}
+          <Text>Fare : {route.fare}</Text>
         </View>
       )}
       <Button
@@ -24,9 +24,9 @@ const RouteCard = ({ route }) => {
         }}
       />
       <Button
-        title="Track"
+        title="View"
         onPress={() => {
-          navigation.navigate("Track Route", {
+          navigation.navigate("Route Detail", {
             data: route,
           });
         }}
