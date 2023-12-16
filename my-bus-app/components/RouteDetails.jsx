@@ -16,7 +16,7 @@ const RouteDetails = ({ route }) => {
       <Text>Directions :-</Text>
       {route.directions.map((direction, index) => <Text>{index + 1}. {direction}</Text>)}
       <Button
-        title={status ? 'Start Tracking' : 'Stop Tracking'}
+        title={status ? 'Stop Tracking' : 'Start Tracking'}
         onPress={() => {
           setStatus((value) => !value)
         }}
